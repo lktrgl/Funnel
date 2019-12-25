@@ -23,6 +23,11 @@ global Mju = 0.7;
 global K = G * M;
 global Kz = G * M;
 
+global X_ID = 1;
+global dX_ID = 2;
+global Y_ID = 3;
+global dY_ID = 4;
+
 #-------------------------------------
 
 function fr=getR(x,y)
@@ -54,11 +59,16 @@ endfunction
 #-------------------------------------
 
 function xdot = insideTheFunelMovement(x,t)
+  global X_ID;
+  global dX_ID;
+  global Y_ID;
+  global dY_ID;
   global Mju;
-  xdot(1) = x(2); 
-  xdot(2) = -x(1) -Mju * x(2) + Fx(x(1),x(3));
-  xdot(3) = x(4); 
-  xdot(4) = -x(3) -Mju * x(4) + Fy(x(1),x(3));
+
+  xdot( X_ID) =  x(dX_ID);
+  xdot(dX_ID) = -x( X_ID) -Mju * x(dX_ID) + Fx(x(X_ID),x(Y_ID));
+  xdot( Y_ID) =  x(dY_ID);
+  xdot(dY_ID) = -x( Y_ID) -Mju * x(dY_ID) + Fy(x(X_ID),x(Y_ID));
 end
 
 #-------------------------------------
