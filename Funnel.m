@@ -3,12 +3,12 @@ clear all
 #-------------------------------------
 
 T0 = 0;
-Tmax = 30;
+Tmax = 5;
 
 X0 = 1;
 Vx0 = 0;
 Y0 = 0;
-Vy0 = 1;
+Vy0 = 0.7;
 
 #-------------------------------------
 
@@ -18,10 +18,10 @@ Npoints = (round(Tmax-T0) + 1) * 20;
 
 global G = 1;
 global M = 1;
-global Eps = 0.01;
-global Mju = 0.7;
+global Eps = 0.0001;
+global Mju = 0.3;
 global K = G * M;
-global Kz = G * M;
+global Kz = 1;
 
 global X_ID = 1;
 global dX_ID = 2;
