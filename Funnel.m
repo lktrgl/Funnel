@@ -34,14 +34,14 @@ endfunction
 
 function fx=Fx(x,y)
   global K;
-  fx = -K * x ./ getR(x,y);
+  fx = -K * x ./ (getR(x,y).^2);
 endfunction
 
 #-------------------------------------
 
 function fy=Fy(x,y)
   global K;
-  fy = -K * y ./ getR(x,y);
+  fy = -K * y ./ (getR(x,y).^2);
 endfunction
 
 #-------------------------------------
