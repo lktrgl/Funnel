@@ -73,8 +73,15 @@ t = linspace(T0,Tmax, Npoints);
 sol=lsode( "insideTheFunelMovement",[X0, Vx0, Y0, Vy0], t);
 
 solZ=Fz(sol(:,1),sol(:,3));
-plot3( sol(:,1)',sol(:,3)',solZ',"-@")
+Z0 = Fz(X0,Y0);
 
+hold off
+plot3( sol(:,1)',sol(:,3)',solZ',"-@")
+hold on
+plot3( X0,Y0,Z0,"-@")
+hold off
+
+grid on
 xlabel ("ось X");
 ylabel ("ось Y");
 zlabel ("ось Z");
